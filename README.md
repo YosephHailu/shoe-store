@@ -1,4 +1,17 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://gebeya.com/images/logo-secondary.png" width="400"></a></p>
+## About shoe store
+Allow customers to view our collection, add products to their cart and “pay” via the app.
+
+#Used techlologies
+- [Laravel framework for server-side scripting](https://laravel.com/docs/8.x/installation)
+- [Vue js JavaScript Framework for client-side scripting](https://vuejs.org/)
+
+
+#Installation
+- Clone the project
+- run composer install command (to install laravel dependencies)
+- run npm install command (to install nodemodule)
+- run php artisan serve command
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
