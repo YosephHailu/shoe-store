@@ -1,7 +1,7 @@
 # About
 The shoe store project Allow customers to view our collection, add products to their cart and “pay” via the app.
 
-# Used techlologies
+# Used technologies
 - [Laravel framework for server-side scripting](https://laravel.com/docs/8.x/installation)
 - [Vue js JavaScript Framework for client-side scripting](https://vuejs.org/)
 
@@ -12,7 +12,7 @@ The shoe store project Allow customers to view our collection, add products to t
 - run npm install command (to install nodemodule)
 - run php artisan serve command
 
-# Screebshots
+# Screenshots
 ![product detail](https://user-images.githubusercontent.com/49060572/99930703-127b1300-2d63-11eb-9f66-e379738875f3.jpg)
 ![products](https://user-images.githubusercontent.com/49060572/99930707-13ac4000-2d63-11eb-82f8-c8bd70f3c38f.jpg)
 ![payment](https://user-images.githubusercontent.com/49060572/99930710-15760380-2d63-11eb-930a-dfb48ee984c7.jpg)
