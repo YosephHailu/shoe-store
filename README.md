@@ -1,4 +1,22 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# About
+The shoe store project Allow customers to view our collection, add products to their cart and “pay” via the app.
+
+# Used technologies
+- [Laravel framework for server-side scripting](https://laravel.com/docs/8.x/installation)
+- [Vue js JavaScript Framework for client-side scripting](https://vuejs.org/)
+
+
+# Installation
+- Clone the project
+- run composer install command (to install laravel dependencies)
+- run npm install command (to install nodemodule)
+- run php artisan serve command
+
+# Screenshots
+![product detail](https://user-images.githubusercontent.com/49060572/99930703-127b1300-2d63-11eb-9f66-e379738875f3.jpg)
+![products](https://user-images.githubusercontent.com/49060572/99930707-13ac4000-2d63-11eb-82f8-c8bd70f3c38f.jpg)
+![payment](https://user-images.githubusercontent.com/49060572/99930710-15760380-2d63-11eb-930a-dfb48ee984c7.jpg)
+
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
@@ -36,6 +54,10 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[Vehikl](https://vehikl.com/)**
 - **[Tighten Co.](https://tighten.co)**
 - **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+![products](https://user-images.githubusercontent.com/49060572/99930707-13ac4000-2d63-11eb-82f8-c8bd70f3c38f.jpg)
+![payment](https://user-images.githubusercontent.com/49060572/99930710-15760380-2d63-11eb-930a-dfb48ee984c7.jpg)
+
+
 - **[64 Robots](https://64robots.com)**
 - **[Cubet Techno Labs](https://cubettech.com)**
 - **[Cyber-Duck](https://cyber-duck.co.uk)**
