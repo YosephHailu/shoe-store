@@ -12,6 +12,10 @@ class ProductService {
     getProduct(id) {
         return http.get("/products/" + id);
     }
+
+    registerProduct(product) {
+        return http.post("/products/", product);
+    }
 }
 
 export default new ProductService();

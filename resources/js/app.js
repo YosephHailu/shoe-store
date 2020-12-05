@@ -6,13 +6,15 @@
 
 require("./bootstrap");
 import App from "./App.vue";
+import store from "./plugins/store";
 import router from "./plugins/router";
-import vuetify from './plugins/vuetify' // path to vuetify export
+import vuetify from "./plugins/vuetify"; // path to vuetify export
 
 window.Vue = require("vue");
 
 const app = new Vue({
     router,
     vuetify,
+    store,
     render: h => h(App)
 }).$mount("#app");

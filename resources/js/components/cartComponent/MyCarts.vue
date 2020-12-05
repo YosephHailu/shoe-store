@@ -59,7 +59,7 @@
       </v-list-item>
     </v-card>
 
-    <div class="text-center my-4" v-if="my_cart_products.length">
+    <div class="text-center my-4" v-if="my_cart_products">
       <v-btn color="yellow" large @click="paymentDialog = true">
         <v-icon left>payment</v-icon>
         Proceed to payment</v-btn
@@ -152,7 +152,7 @@ export default {
   },
   methods: {
     decrement(product) {
-      if (product > 1) product.quantity -= 1;
+      if (product.quantity > 1) product.quantity--;
     },
 
     increment(product) {
@@ -170,7 +170,7 @@ export default {
     removeProductFromCart(product) {
       CartService.removeProductFromCart(product);
       this.getMyCartProducts();
-      this.notify("Product removed from you cart", "error");
+      this.notify("Product removed from your cart", "error");
     },
     notify(message, color) {
       this.notification = {

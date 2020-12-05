@@ -13,7 +13,7 @@
       hide-no-data
       hide-details
       @input="selectProduct()"
-      label="What state are you from?"
+      label="Search your products?"
       solo-inverted
     ></v-autocomplete>
   </v-toolbar>

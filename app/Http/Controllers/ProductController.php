@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware(['auth:api'])->only(['store', 'destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,12 +22,12 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         //
-        $products = Product::query();
+        $products = Product::with('user');
 
         if ($request->q) {
             $products = $products->where('name', 'like', '%' . $request->q . '%');
         }
-        return $products->paginate(15);
+        return response()->json($products->paginate(15));
     }
 
     /**
@@ -42,6 +49,20 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request->validate([
+            "name" => "required",
+            "currency" => "required",
+            "price" => "required|numeric"
+        ]);
+
+        $request->request->add(['user_id' => Auth::Id()]);
+
+        Product::create($request->all());
+
+        return response()->json([
+            'message' => 'Successfully added'
+        ]);
     }
 
     /**
@@ -77,6 +98,17 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         //
+        $request->validate([
+            "name" => "required",
+            "currency" => "required",
+            "price" => "required|numeric"
+        ]);
+
+        $product->update($request->all());
+
+        return response()->json([
+            'message' => 'Successfully added'
+        ]);
     }
 
     /**
@@ -88,5 +120,10 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+        $product->delete();
+
+        return response()->json([
+            'message' => 'Successfully deleted'
+        ]);
     }
 }

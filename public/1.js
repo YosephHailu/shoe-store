@@ -161,7 +161,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     decrement: function decrement(product) {
-      if (product > 1) product.quantity -= 1;
+      if (product.quantity > 1) product.quantity--;
     },
     increment: function increment(product) {
       product.quantity++;
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
     removeProductFromCart: function removeProductFromCart(product) {
       _CartService_ts__WEBPACK_IMPORTED_MODULE_0__["default"].removeProductFromCart(product);
       this.getMyCartProducts();
-      this.notify("Product removed from you cart", "error");
+      this.notify("Product removed from your cart", "error");
     },
     notify: function notify(message, color) {
       this.notification = {
@@ -364,7 +364,7 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _vm.my_cart_products.length
+      _vm.my_cart_products
         ? _c(
             "div",
             { staticClass: "text-center my-4" },
