@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductResourceCollection;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,12 +24,12 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         //
-        $products = Product::with('user');
+        $products = Product::with('user')->orderByDesc('updated_at');
 
         if ($request->q) {
             $products = $products->where('name', 'like', '%' . $request->q . '%');
         }
-        return response()->json($products->paginate(15));
+        return new ProductResourceCollection($products->paginate(15));
     }
 
     /**
@@ -49,14 +51,29 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
-
         $request->validate([
             "name" => "required",
             "currency" => "required",
             "price" => "required|numeric"
         ]);
 
+        
+        if ($request->hasFile('photo')) {
+            $fileNameWithExt = $request->file('photo')->getClientOriginalName();
+            //Get only file name
+            $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            //File extension
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            //File name to store
+            $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
+            //Upload Image
+            $path = $request->file('photo')->storeAs('img', $fileNameToStore);
+        } else {
+            $fileNameToStore = 'placeholder.png';
+        }
+
         $request->request->add(['user_id' => Auth::Id()]);
+        $request->request->add(['image' => $fileNameToStore]);
 
         Product::create($request->all());
 
@@ -74,7 +91,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         //
-        return response()->json($product);
+        return new ProductResource($product);
     }
 
     /**
@@ -120,6 +137,9 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         //
+
+        $this->authorize('delete', $product);
+
         $product->delete();
 
         return response()->json([

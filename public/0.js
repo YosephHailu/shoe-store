@@ -114,7 +114,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       _ProductService_ts__WEBPACK_IMPORTED_MODULE_0__["default"].getProducts(this.pagination.current_page).then(function (response) {
         _this.products = response.data.data;
-        _this.pagination = _objectSpread({}, response.data);
+        _this.pagination = _objectSpread({}, response.data.meta);
       })["catch"](function (error) {});
     },
     addToCart: function addToCart(product) {

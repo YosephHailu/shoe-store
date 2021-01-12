@@ -96,7 +96,7 @@ export default {
       ProductService.getProducts(this.pagination.current_page)
         .then((response) => {
           this.products = response.data.data;
-          this.pagination = { ...response.data };
+          this.pagination = { ...response.data.meta };
         })
         .catch((error) => {});
     },

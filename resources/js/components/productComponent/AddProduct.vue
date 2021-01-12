@@ -39,7 +39,7 @@
 
       <v-col class="pb-0 mb-0">
         <v-file-input
-          v-model="product.image"
+          v-model="product.photo"
           :rules="[
             (value) =>
               !value ||
@@ -90,8 +90,15 @@ export default {
       };
     },
     registerProduct() {
-      ProductService.registerProduct(this.product)
+      let formData = new FormData();
+
+      Object.keys(this.product).forEach(key =>
+        formData.append(key, this.product[key])
+      );
+
+      ProductService.registerProduct(formData)
         .then((response) => {
+          console.log(response);
           this.clearForm();
           this.notify("Product added", "success");
         })

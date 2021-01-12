@@ -102,7 +102,13 @@ __webpack_require__.r(__webpack_exports__);
     registerProduct: function registerProduct() {
       var _this = this;
 
-      _ProductService_ts__WEBPACK_IMPORTED_MODULE_0__["default"].registerProduct(this.product).then(function (response) {
+      var formData = new FormData();
+      Object.keys(this.product).forEach(function (key) {
+        return formData.append(key, _this.product[key]);
+      });
+      _ProductService_ts__WEBPACK_IMPORTED_MODULE_0__["default"].registerProduct(formData).then(function (response) {
+        console.log(response);
+
         _this.clearForm();
 
         _this.notify("Product added", "success");
@@ -258,11 +264,11 @@ var render = function() {
                   label: "Image"
                 },
                 model: {
-                  value: _vm.product.image,
+                  value: _vm.product.photo,
                   callback: function($$v) {
-                    _vm.$set(_vm.product, "image", $$v)
+                    _vm.$set(_vm.product, "photo", $$v)
                   },
-                  expression: "product.image"
+                  expression: "product.photo"
                 }
               })
             ],

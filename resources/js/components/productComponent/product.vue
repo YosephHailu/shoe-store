@@ -13,7 +13,7 @@
         >
           {{ product.name }}
         </v-card-title>
-        <v-card-subtitle class="px-0 h1 title">
+        <v-card-subtitle class="px-0 h1 text-left title">
           Price: {{ `${product.price} ${product.currency}` }}
         </v-card-subtitle>
 
@@ -71,7 +71,7 @@ export default {
       ProductService.getProduct(this.$route.params.id)
         .then((response) => {
           console.log("get", response);
-          this.product = response.data;
+          this.product = response.data.data;
           this.product.quantity = 1;
         })
         .catch((error) => {

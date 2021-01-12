@@ -82,7 +82,7 @@ __webpack_require__.r(__webpack_exports__);
 
       _ProductService_ts__WEBPACK_IMPORTED_MODULE_0__["default"].getProduct(this.$route.params.id).then(function (response) {
         console.log("get", response);
-        _this.product = response.data;
+        _this.product = response.data.data;
         _this.product.quantity = 1;
       })["catch"](function (error) {
         console.log("error", error.response.data);
@@ -164,13 +164,17 @@ var render = function() {
                 [_vm._v("\n        " + _vm._s(_vm.product.name) + "\n      ")]
               ),
               _vm._v(" "),
-              _c("v-card-subtitle", { staticClass: "px-0 h1 title" }, [
-                _vm._v(
-                  "\n        Price: " +
-                    _vm._s(_vm.product.price + " " + _vm.product.currency) +
-                    "\n      "
-                )
-              ]),
+              _c(
+                "v-card-subtitle",
+                { staticClass: "px-0 h1 text-left title" },
+                [
+                  _vm._v(
+                    "\n        Price: " +
+                      _vm._s(_vm.product.price + " " + _vm.product.currency) +
+                      "\n      "
+                  )
+                ]
+              ),
               _vm._v(" "),
               _c(
                 "v-btn-toggle",

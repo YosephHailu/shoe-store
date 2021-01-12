@@ -31,7 +31,7 @@ class AddUserIdToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            //
+            $table->dropForeign('products_user_id_foreign');
         });
     }
 }
