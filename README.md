@@ -4,12 +4,13 @@ The shoe store project Allow customers to view our collection, add products to t
 # Used technologies
 - [Laravel framework for server-side scripting](https://laravel.com/docs/8.x/installation)
 - [Vue js JavaScript Framework for client-side scripting](https://vuejs.org/)
-
+- Laravel passport for user authentication
 
 # Installation
 - Clone the project
 - run composer install command (to install laravel dependencies)
 - run npm install command (to install nodemodule)
+- run php artisan passport:install
 - run php artisan serve command
 
 # Screenshots
